@@ -31,27 +31,30 @@ def pub(go_pub, direction):
 
 def imgcallback(data):
     global gray, direction
-
-    l_point=(300, 600)
-    r_point=(500, 600)
+    xl=320
+    xr=480
+    y=550
+    l_point=(xl, y)
+    r_point=(xr, y)
 
     img = bridge.imgmsg_to_cv2(data, "bgr8")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    plan(gray[600][300], gray[600][500])
+    plan(gray[y][xl], gray[y][xr])
 
     gray = cv2.line(gray, l_point, r_point, 0,5)
-    cv2.imshow("image", gray)
-    cv2.waitKey(3)
+    #cv2.imshow("image", gray)
+    #cv2.waitKey(3)
     
     if direction =="GO":
-     gray=cv2.circle(gray,(230,600),10,255,5)
+     gray=cv2.circle(gray,(int((xl+xr)/2),y),10,255,5)
     if direction =="LEFT":
      gray=cv2.circle(gray,l_point,10,255,5)
     if direction =="RIGHT":
      gray=cv2.circle(gray,r_point,10,255,5)
 
-    
+    cv2.imshow("image", gray)
+    cv2.waitKey(3)
     # Pass the publisher and direction to the pub() function
     pub(go_pub, direction)
     print(direction)

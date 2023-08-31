@@ -2,7 +2,7 @@
 
 <robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:property name="cameraSize" value="0.05"/>
+  <xacro:property name="cameraSize" value="0.025"/>
   <xacro:property name="cameraMass" value="0.1"/>
   
   <!-- <xacro:include filename="$(find spcbot_description)/urdf/materials.xacro"/> -->
@@ -24,21 +24,21 @@
 
     <collision name='collision'>
       <geometry>
-        <box size=".4 .2 .1"/>
+        <box size=".15 .1 .05"/>
       </geometry>
     </collision>
 
     <visual name='chassis_visual'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-        <box size=".4 .2 .1"/>
+        <box size=".15 .1 .05"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision name='caster_collision'>
-      <origin xyz="-0.15 0 -0.05" rpy=" 0 0 0"/>
+      <origin xyz="-0.055 0 -0.025" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.025"/>
       </geometry>
       <!-- <surface>
         <friction>
@@ -53,18 +53,18 @@
     </collision>
 
     <visual name='caster_visual'>
-      <origin xyz="-0.15 0 -0.05" rpy=" 0 0 0"/>
+      <origin xyz="-0.055 0 -0.025" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.025"/>
       </geometry>
     </visual>
 
-    <collision name='caster_front_collision'>
-      <origin xyz="0.15 0 -0.05" rpy=" 0 0 0"/>
+    <!-- <collision name='caster_front_collision'>
+      <origin xyz="0.075 0 -0.025" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.025"/>
       </geometry>
-      <!-- <surface>
+      < <surface>
         <friction>
           <ode>
             <mu>0</mu>
@@ -73,15 +73,15 @@
             <slip2>1.0</slip2>
           </ode>
         </friction>
-      </surface> -->
+      </surface> >
     </collision>
 
     <visual name='caster_front_visual'>
-      <origin xyz="0.15 0 -0.05" rpy=" 0 0 0"/>
+      <origin xyz="0.075 0 -0.025" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.025"/>
       </geometry>
-    </visual>
+    </visual> -->
 
   </link>
 
@@ -91,13 +91,13 @@
     <collision name="collision">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.1" length="0.05"/>
+        <cylinder radius="0.05" length="0.025"/>
       </geometry>
     </collision>
     <visual name="left_wheel_visual">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.1" length="0.05"/>
+        <cylinder radius="0.05" length="0.025"/>
       </geometry>
       <material name="yellow"/>
     </visual>
@@ -116,13 +116,13 @@
     <collision name="collision">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.1" length="0.05"/>
+        <cylinder radius="0.05" length="0.025"/>
       </geometry>
     </collision>
     <visual name="right_wheel_visual">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.1" length="0.05"/>
+        <cylinder radius="0.05" length="0.025"/>
       </geometry>
       <material name="yellow"/>
     </visual>
@@ -138,7 +138,7 @@
 
 
   <joint type="continuous" name="left_wheel_hinge">
-    <origin xyz="0 0.15 0" rpy="0 0 0"/>
+    <origin xyz=".055 0.075 0" rpy="0 0 0"/>
     <!--origin xyz="0.1 0.13 0" rpy="0 1.5707 1.5707"/-->
     <child link="left_wheel"/>
     <parent link="chassis"/>
@@ -148,7 +148,7 @@
   </joint>
 
   <joint type="continuous" name="right_wheel_hinge">
-    <origin xyz="0 -0.15 0" rpy="0 0 0"/>
+    <origin xyz=".055 -0.075 0" rpy="0 0 0"/>
     <!--origin xyz="0.1 -0.13 0" rpy="0 1.5707 1.5707"/-->
     <child link="right_wheel"/>
     <parent link="chassis"/>
@@ -184,7 +184,7 @@
 
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz=".2 0 0" rpy="0 0 0"/>
+    <origin xyz=".075 0 0" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="camera_link"/>
   </joint>

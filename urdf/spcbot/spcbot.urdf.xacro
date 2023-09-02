@@ -6,7 +6,7 @@
   <xacro:property name="cameraMass" value="0.1"/>
   
   <!-- <xacro:include filename="$(find spcbot_description)/urdf/materials.xacro"/> -->
-  <xacro:include filename="$(find computer_vision_pkg)/urdf/spcbot/spcbot.gazebo.xacro"/>
+  <xacro:include filename="$(find cv)/urdf/spcbot/spcbot.gazebo.xacro"/>
 
   
   <link name='chassis'>
@@ -36,9 +36,9 @@
       <material name="black"/>
     </visual>
     <collision name='caster_collision'>
-      <origin xyz="-0.055 0 -0.025" rpy=" 0 0 0"/>
+      <origin xyz="-0.055 0 -0.02" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.025"/>
+        <sphere radius="0.02"/>
       </geometry>
       <!-- <surface>
         <friction>
@@ -53,9 +53,9 @@
     </collision>
 
     <visual name='caster_visual'>
-      <origin xyz="-0.055 0 -0.025" rpy=" 0 0 0"/>
+      <origin xyz="-0.055 0 -0.02" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.025"/>
+        <sphere radius="0.02"/>
       </geometry>
     </visual>
 
@@ -91,13 +91,13 @@
     <collision name="collision">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.05" length="0.025"/>
+        <cylinder radius="0.04" length="0.02"/>
       </geometry>
     </collision>
     <visual name="left_wheel_visual">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.05" length="0.025"/>
+        <cylinder radius="0.04" length="0.02"/>
       </geometry>
       <material name="yellow"/>
     </visual>
@@ -116,13 +116,13 @@
     <collision name="collision">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.05" length="0.025"/>
+        <cylinder radius="0.04" length="0.02"/>
       </geometry>
     </collision>
     <visual name="right_wheel_visual">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius="0.05" length="0.025"/>
+        <cylinder radius="0.04" length="0.02"/>
       </geometry>
       <material name="yellow"/>
     </visual>
@@ -138,7 +138,7 @@
 
 
   <joint type="continuous" name="left_wheel_hinge">
-    <origin xyz=".055 0.075 0" rpy="0 0 0"/>
+    <origin xyz=".045 0.075 0" rpy="0 0 0"/>
     <!--origin xyz="0.1 0.13 0" rpy="0 1.5707 1.5707"/-->
     <child link="left_wheel"/>
     <parent link="chassis"/>
@@ -148,7 +148,7 @@
   </joint>
 
   <joint type="continuous" name="right_wheel_hinge">
-    <origin xyz=".055 -0.075 0" rpy="0 0 0"/>
+    <origin xyz=".045 -0.075 0" rpy="0 0 0"/>
     <!--origin xyz="0.1 -0.13 0" rpy="0 1.5707 1.5707"/-->
     <child link="right_wheel"/>
     <parent link="chassis"/>

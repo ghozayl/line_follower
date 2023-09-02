@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <launch>
   <!-- our xacro/urdf model -->
-  <!-- <arg name="model" value="$(find computer_vision_pkg)/urdf/sumo.urdf.xacro"/> -->
+  <!-- <arg name="model" value="$(find cv)/urdf/sumo.urdf.xacro"/> -->
 
   <!-- load our urdf model (string) into global parameter called "robot_description"-->
   <!-- xacro parses xacro files and returns a urdf file -->
   <!-- <param name="robot_description"
          command="$(find xacro)/xacro $(arg model)" /> -->
 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find computer_vision_pkg)/urdf/spcbot/spcbot.urdf.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find cv)/urdf/spcbot/spcbot.urdf.xacro'"/>
   
 
   <!-- We use empty_world.launch to start gazebo, changing only the name of the world to be launched -->
@@ -18,7 +18,7 @@
     <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="headless" value="false"/>
-    <arg name="world_name" value="$(find computer_vision_pkg)/world/ground_plate.world" />
+    <arg name="world_name" value="$(find cv)/world/ground_plate.world" />
   </include>
 
 
@@ -46,7 +46,7 @@
   <!-- parameters store motor controller configurations -->
  
   <rosparam command="load"
-            file="$(find computer_vision_pkg)/config/spjoints.yaml" />
+            file="$(find cv)/config/spjoints.yaml" />
   
   <!-- Spawn controllers -->
   <node name="spc_controller_spawner"

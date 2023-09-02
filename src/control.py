@@ -10,11 +10,13 @@ def commands_callback(msg):
     left_speed = 0.0
     right_speed = 0.0
 
+    m=1
+    t=.1
     command = msg.data
 
     if command == "GO":
-        left_speed = 0.50
-        right_speed = 0.50
+        left_speed = m
+        right_speed = m
     elif command == "GO_REALLY_FAST":
         left_speed = 10.0  # radians per second
         right_speed = 10.0
@@ -22,11 +24,11 @@ def commands_callback(msg):
         left_speed = -0.5
         right_speed = -0.5
     elif command == "LEFT":
-        left_speed = 0.25
-        right_speed = 0.5
+        left_speed = t
+        right_speed =m
     elif command == "RIGHT":
-        left_speed = 0.5
-        right_speed = 0.25
+        left_speed = m
+        right_speed = t
     else:
         left_speed = 0.0  # Stop the robot
         right_speed = 0.0

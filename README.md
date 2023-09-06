@@ -9,13 +9,13 @@
 ## Cloning the repo
 Go to home directory if you're not already there
 ```
-cd ~
+cd 
 ```
 Run following commands
 ```
 mkdir -p catkin_ws/src
 cd catkin_ws/src
-git clone https://github.com/utra-robosoccer/Computer-Vision-Tutorial.git
+git clone https://github.com/ghozayl/line_follower.git
 ```
 
 ## Updating Dependencies
@@ -37,7 +37,7 @@ source devel/setup.bash
 
 ## Launch the robot
 ```
-roslaunch computer_vision_pkg gazebo.launch
+roslaunch cv spc.launch
 ```
 
 ## Commands used during tutorial
@@ -47,7 +47,7 @@ To run motor controller node, open new terminal
 ```
 cd ~/catkin_ws
 source devel/setup.bash
-rosrun computer_vision_pkg motor_controller
+rosrun cv control.py
 ```
 
 To run planner node, go to /src folder
